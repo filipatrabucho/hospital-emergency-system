@@ -1,0 +1,21 @@
+.status-container {
+  background-color: purple;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.room {
+  background-color: green;
+  margin-bottom: 20px;
+}
+.waiting {
+  background-color: red;
+  margin-bottom: 20px;
+}
+.free {
+  background-color: #ffa701;
+  margin-bottom: 20px;
+}

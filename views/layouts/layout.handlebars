@@ -1,0 +1,169 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Do not allow zoom om mobile devices -->
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/startmin.js"></script>
+
+    <title>Hospital-Emergency-System</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link href="/css/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- Timeline CSS -->
+    <link href="/css/timeline.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="/css/startmin.css" rel="stylesheet" />
+
+    <!-- Morris Charts CSS -->
+    <link href="/css/morris.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/layout.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+  </head>
+  <body>
+    <nav>
+      <div class="logo-name">
+        <div class="logo-image">
+        </div>
+
+        <span class="logo_name">Emergency System</span>
+      </div>
+
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li><a href="/app">
+              <i class="uil uil-estate"></i>
+              <span class="link-name">Home</span>
+            </a></li>
+          <li><a href="/app/getpatients">
+              <i class="uil uil-files-landscapes"></i>
+              <span class="link-name">Patient</span>
+            </a></li>
+          <li><a href="/app/addpatient">
+              <i class="uil uil-chart"></i>
+              <span class="link-name">Add Patient</span>
+            </a></li>
+          <li><a href="/app/structure">
+              <i class="uil uil-comments"></i>
+              <span class="link-name">Structure</span>
+            </a></li>
+
+        </ul>
+
+        <ul class="logout-mode">
+          <li><a href="/app/systemsettings">
+              <i class="uil uil-comments"></i>
+              <span class="link-name">Settings</span>
+            </a></li>
+          <li><a href="/">
+              <i class="uil uil-signout"></i>
+              <span class="link-name">Logout</span>
+            </a></li>
+
+          <li class="mode">
+            <a href="#">
+              <i class="uil uil-moon"></i>
+              <span class="link-name">Dark Mode</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="dashboard">
+
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="/css/dataTables.bootstrap.min.css"
+      />
+      <link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
+
+      <!-- Page Content -->
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <h4 class="page-header">{{pageTitle}}</h4>
+            </div>
+          </div>
+
+          <!-- Flash messages to inform user-->
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+
+          {{#if message}}
+            <div class="alert alert-danger">{{message}}</div>
+          {{/if}}
+
+          {{#each errors}}
+            <div class="alert alert-danger">{{message}}</div>
+          {{/each}}
+
+          <!-- ... Your content goes here ... -->
+          {{{body}}}
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const body = document.querySelector("body"), modeToggle =
+      body.querySelector(".mode-toggle"); sidebar = body.querySelector("nav");
+      sidebarToggle = body.querySelector(".sidebar-toggle"); let getMode =
+      localStorage.getItem("mode"); if(getMode && getMode ==="dark"){
+      body.classList.toggle("dark"); } let getStatus =
+      localStorage.getItem("status"); if(getStatus && getStatus ==="close"){
+      sidebar.classList.toggle("close"); } modeToggle.addEventListener("click",
+      () =>{ body.classList.toggle("dark"); if(body.classList.contains("dark")){
+      localStorage.setItem("mode", "dark"); }else{ localStorage.setItem("mode",
+      "light"); } }); sidebarToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+      if(sidebar.classList.contains("close")){ localStorage.setItem("status",
+      "close"); }else{ localStorage.setItem("status", "open"); } })
+
+    </script>
+  </body>
+</html>
