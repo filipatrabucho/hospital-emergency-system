@@ -1,3 +1,21 @@
+App for a hospital emergency department.
+
+LOGIN username: admin password: admin
+
+The patient arrives at the emergency room or creates an account or uses the account already created 
+Each patient has an associated disease 
+Each disease has an associated "score" the "score" symbolizes the type of urgency, 
+    from 50 upwards -> red color (the patient has maximum urgency) 
+    from 20 to 49 -> yellow color (the patient has urgency) 
+    from 0 to 19 -> gray color (there is no urgency)
+
+When creating a patient record and associating the patient with a disease, the dashboard shows the patient with the respective bracelet color.
+
+When you select the patient and the room, it goes directly from "waiting room" to "in room".
+
+Clicking on a patient (on the dashboard) opens the patient area where we can add another disease or even remove it, we can also update, delete the patient and even send them to the waiting room again.
+
+-------In Portuguese------------
 App para um hospital area de Urgencias.
 
 LOGIN
